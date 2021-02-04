@@ -12,7 +12,7 @@ int p,at,ct,bt,tt,wt;
 int main()
 {
     int i,j,n;
-    printf("\t\t\t\t\tFIRST COME FIRST SERVE SCHEDULING");
+    printf("\t\tFIRST COME FIRST SERVE SCHEDULING");
     printf("\nEnter the number of processes:");
     scanf("%d",&n);
     printf("\n");
@@ -29,10 +29,10 @@ int main()
     }
     for(i=0;i<n;i++){
         for(j=0;j<n;j++){
-            if(p[i].at<p[j].at){
-                temp=p[i];
-                p[i]=p[j];
-                p[j]=temp;
+            if(p[j+1].at<p[j].at){
+                temp=p[j];
+                p[j]=p[j+1];
+                p[j+1]=temp;
             }
         }
     }
@@ -48,9 +48,10 @@ int main()
             continue;
         }
     }
+    int extra=p[0].at;
     for(i=0;i<n;i++){
         if(i==0){
-            p[i].ct=p[i].bt;
+            p[i].ct=p[i].bt+extra;
         }
         else{
             p[i].ct=p[i-1].ct+p[i].bt;
