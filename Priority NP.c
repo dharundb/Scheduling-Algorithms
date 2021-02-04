@@ -12,7 +12,7 @@ int p,at,ct,pr,bt,tt,wt;
 int main()
 {
     int i,j,n;
-    printf("\t\t\t\t\tPRIORITY SCHEDULING- NON PREEMPTIVE");
+    printf("\t\tPRIORITY SCHEDULING- NON PREEMPTIVE");
     printf("\nEnter the number of processes:");
     scanf("%d",&n);
     printf("\n");
@@ -40,7 +40,7 @@ int main()
     }
     for(i=0;i<n;i++){
         if(i==0){
-            p[i].ct=p[i].bt;
+            p[i].ct=p[i].bt+p[i].at;
         }
         else{
             p[i].ct=p[i-1].ct+p[i].bt;
@@ -72,4 +72,5 @@ int main()
     printf("\nAverage Turn Around Time : %.2f",att);
     printf("\nAverage Waiting time : %.2f",awt);
 }
+
 
