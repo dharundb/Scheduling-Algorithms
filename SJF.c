@@ -48,9 +48,10 @@ int main()
             continue;
         }
     }
+    int extra=p[0].at;
     for(i=0;i<n;i++){
         if(i==0){
-            p[i].ct=p[i].bt;
+            p[i].ct=p[i].bt+extra;
         }
         else{
             p[i].ct=p[i-1].ct+p[i].bt;
